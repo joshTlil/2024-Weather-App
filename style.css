@@ -3,7 +3,7 @@
 }
 
 body{
-    background-color: rgb(174, 199, 199);
+    background-color: rgb(229, 236, 240);
 }
 
 .searchBar{
@@ -24,6 +24,14 @@ body{
     margin-left: 10em;
     width: 90em;
 }
+
+.dailyWeatherHeader > h1{
+    display: inline-block;
+}
+
+/* .displayWeatherHeader > img{
+    display: inline-block;
+} */
 
 header{
     text-align: center;

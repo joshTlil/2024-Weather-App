@@ -4,7 +4,10 @@ let link = 'https://api.openweathermap.org/data/2.5/weather?q='+ cityName + '&ap
 let searchForm = document.querySelector('.searchBar');
 let iconDisplay = document.querySelector('#icon');
 let locationIcon = document.querySelector('weatherIcon')
+let cityNameEl = document.querySelector('.cityName')
+let dayOfWeek = document.querySelector('.dayOfWeek')
 let number = 23
+const date = new Date();
 
 // function searchFunction(event){
 //     event.preventDefault();
@@ -30,6 +33,8 @@ function getApi(link){
         return response.json();
     })
     .then(function (data){
+        console.log(data)
+        console.log(data.name)
         console.log(data.weather[0])
         console.log(data.weather[0].description)
         // getElement('icon').attr = data.weather[0].icon;
@@ -37,6 +42,8 @@ function getApi(link){
         let iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(number)
         iconDisplay.setAttribute('src', iconUrl)
+        cityNameEl.innerHTML = data.name
+        dayOfWeek.innerHTML = moment(date).format('MM/DD/YYYY')
        
     });
 }
