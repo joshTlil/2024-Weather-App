@@ -23,7 +23,9 @@ function getApi(link){
         return response.json();
     })
     .then(function (data){
-        console.log(data)
+        console.log(data.weather[0])
+        console.log(data.weather[0].description)
+
     });
 }
 
