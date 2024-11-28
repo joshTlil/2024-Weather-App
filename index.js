@@ -6,7 +6,11 @@ let iconDisplay = document.querySelector('#icon');
 let locationIcon = document.querySelector('weatherIcon')
 let cityNameEl = document.querySelector('.cityName')
 let dayOfWeek = document.querySelector('.dayOfWeek')
-let number = 23
+let tempEl = document.querySelector('.temp')
+let windEl = document.querySelector('.wind')
+let humidEl = document.querySelector('.humid')
+let uvEl = document.querySelector('.uv')
+let temp;
 const date = new Date();
 
 // function searchFunction(event){
@@ -40,11 +44,12 @@ function getApi(link){
         // getElement('icon').attr = data.weather[0].icon;
         let iconCode = data.weather[0].icon;
         let iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-        console.log(number)
         iconDisplay.setAttribute('src', iconUrl)
         cityNameEl.innerHTML = data.name
         dayOfWeek.innerHTML = moment(date).format('MM/DD/YYYY')
-       
+        temp = data.main.temp;
+        console.log(((((temp-273.15)*9)/5))+32)
+        console.log(Math.floor(((((temp-273.15)*9)/5))+32))
     });
 }
 
