@@ -2,6 +2,10 @@
     display: grid;
 }
 
+body{
+    background-color: rgb(174, 199, 199);
+}
+
 .searchBar{
     grid-column-start: 1;
     grid-column-end: 3;
