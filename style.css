@@ -1,0 +1,42 @@
+.displayWeather{
+    display: grid;
+}
+
+.searchBar{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 9;
+    width: 16em;
+    border: 1px solid black;
+}
+
+.dailyWeather{
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 1; 
+    border: 1px solid black;
+    margin-right: 25em;
+    margin-left: 10em;
+    width: 90em;
+}
+
+header{
+    text-align: center;
+    background-color: aqua;
+}
+
+textarea{
+    width: 100px;
+}
+
+input{
+    width: 20em;
+    margin-bottom: 2em;
+    height: 2.7em;
+}
+
+button{
+    margin-left: 4em;
+    width: 10em;
+}

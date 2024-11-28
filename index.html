@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>2024 Weather App</title>
 </head>
 <body>
-    <div class="displayWeather">
     <header>Weather Dashboard</header>
-    <div class="searchBar">
+    <div class="displayWeather">
+    <form class="searchBar">
         <h1>Search For a City:</h1>
-        <textarea name="city" id="city"></textarea>
+        <input type="text" name="search" id="search">
+
         <button>Search</button>
-    </div>
+    </form>
     <div class="dailyWeather">
         <div class="dailyWeatherHeader">
         <h1 class="cityName"></h1>
