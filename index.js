@@ -12,7 +12,17 @@ let humidEl = document.querySelector('.humid')
 let uvEl = document.querySelector('.uv')
 let temp;
 const date = new Date();
-
+const tomorrow = new Date();
+const dayOne = new Date();
+const dayTwo = new Date();
+const dayThree = new Date();
+const dayFour = new Date();
+const dayFive = new Date();
+dayOne.setDate(date.getDate()+1)
+dayTwo.setDate(date.getDate()+2)
+dayThree.setDate(date.getDate()+3)
+dayFour.setDate(date.getDate()+4)
+dayFive.setDate(date.getDate()+5)
 // function searchFunction(event){
 //     event.preventDefault();
 //     let cityName = "Atlanta"
@@ -47,6 +57,15 @@ function getApi(link){
         iconDisplay.setAttribute('src', iconUrl)
         cityNameEl.innerHTML = data.name
         dayOfWeek.innerHTML = moment(date).format('MM/DD/YYYY')
+        tomorrow.setDate(date.getDate()+1)
+        console.log(tomorrow)
+        console.log(moment(tomorrow).format('MM/DD/YYYY'))
+        //Adding five day forecast for later
+        console.log(moment(dayOne).format('MM/DD/YYYY'))
+        console.log(moment(dayTwo).format('MM/DD/YYYY'))
+        console.log(moment(dayThree).format('MM/DD/YYYY'))
+        console.log(moment(dayFour).format('MM/DD/YYYY'))
+        console.log(moment(dayFive).format('MM/DD/YYYY'))
         temp = data.main.temp;
         console.log(((((temp-273.15)*9)/5))+32)
         console.log(Math.floor(((((temp-273.15)*9)/5))+32))
