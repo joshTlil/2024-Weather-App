@@ -52,3 +52,28 @@ button{
     margin-left: 4em;
     width: 10em;
 }
+
+.fiveDayForecast{
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 3; 
+    grid-row-end: 6;
+    border: 1px solid black;
+    height: 20em;
+    width: 90em;
+}
+
+.fiveDayForecast > .block{
+    display: inline-flex;
+}
+
+.block {
+    border: 1px solid black;
+    width: 9em;
+    margin-left: 8em;
+    height: 10em;
+}
+
+.block > p{
+    display: block;
+}
