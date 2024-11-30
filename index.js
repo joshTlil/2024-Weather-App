@@ -1,6 +1,7 @@
 let weatherApiKey = "0f272bc818897878df309b4b56d1f500"
 let cityName = "Atlanta"
 let link = 'https://api.openweathermap.org/data/2.5/weather?q='+ cityName + '&appid=' + weatherApiKey
+let forecast = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=' + weatherApiKey
 let searchForm = document.querySelector('.searchBar');
 let iconDisplay = document.querySelector('#icon');
 let locationIcon = document.querySelector('weatherIcon')
@@ -23,6 +24,7 @@ dayTwo.setDate(date.getDate()+2)
 dayThree.setDate(date.getDate()+3)
 dayFour.setDate(date.getDate()+4)
 dayFive.setDate(date.getDate()+5)
+console.log(forecast)
 // function searchFunction(event){
 //     event.preventDefault();
 //     let cityName = "Atlanta"
@@ -71,5 +73,26 @@ function getApi(link){
         console.log(Math.floor(((((temp-273.15)*9)/5))+32))
     });
 }
+
+
+function getForecast (forecast){
+    fetch(forecast)
+    .then(function(response){
+        console.log(response.status)
+        if(response.status !== 200){
+            console.log(response.status)
+        }
+        return response.json();
+    })
+    .then(function(data){
+        console.log(data)
+        //multiples of 8
+        console.log(data.list)
+        console.log(data.list[1].main.temp)
+    })
+
+}
+
+getForecast(forecast)
 
 getApi(link)
