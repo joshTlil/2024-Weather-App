@@ -11,7 +11,17 @@ let tempEl = document.querySelector('.temp')
 let windEl = document.querySelector('.wind')
 let humidEl = document.querySelector('.humid')
 let uvEl = document.querySelector('.uv')
+let dayOneEl = document.querySelector('.dayOne')
+let dayTwoEl = document.querySelector('.dayTwo')
+let dayThreeEl = document.querySelector('.dayThree')
+let dayFourEl = document.querySelector('.dayFour')
+let dayFiveEl = document.querySelector('.dayFive')
 let temp;
+let forePicOne = document.querySelector('.iconOne')
+let forePicTwo = document.querySelector('.iconTwo')
+let forePicThree = document.querySelector('.iconThree')
+let forePicFour = document.querySelector('.iconFour')
+let forePicFive = document.querySelector('.iconFive')
 const date = new Date();
 const tomorrow = new Date();
 const dayOne = new Date();
@@ -89,6 +99,16 @@ function getForecast (forecast){
         //multiples of 8
         console.log(data.list)
         console.log(data.list[1].main.temp)
+        dayOneEl.innerHTML = moment(dayOne).format('MM/DD/YYYY')
+        dayTwoEl.innerHTML = moment(dayTwo).format('MM/DD/YYYY')
+        dayThreeEl.innerHTML = moment(dayThree).format('MM/DD/YYYY')
+        dayFourEl.innerHTML = moment(dayFour).format('MM/DD/YYYY')
+        dayFiveEl.innerHTML = moment(dayFive).format('MM/DD/YYYY')
+        let iconCodeOne = data.list[0].weather[0].icon;
+        // console.log(iconCode)
+        let iconUrlOne = "http://openweathermap.org/img/w/" + iconCodeOne + ".png";
+        forePicOne.setAttribute('src', iconUrlOne)
+
     })
 
 }

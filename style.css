@@ -60,7 +60,7 @@ button{
     grid-row-end: 6;
     border: 1px solid black;
     height: 20em;
-    width: 90em;
+    width: 98em;
 }
 
 .fiveDayForecast > .block{
@@ -69,9 +69,9 @@ button{
 
 .block {
     border: 1px solid black;
-    width: 9em;
+    width: 11em;
     margin-left: 8em;
-    height: 10em;
+    height: 15em;
 }
 
 .block > p{
