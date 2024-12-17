@@ -105,9 +105,25 @@ function getForecast (forecast){
         dayFourEl.innerHTML = moment(dayFour).format('MM/DD/YYYY')
         dayFiveEl.innerHTML = moment(dayFive).format('MM/DD/YYYY')
         let iconCodeOne = data.list[0].weather[0].icon;
-        // console.log(iconCode)
         let iconUrlOne = "http://openweathermap.org/img/w/" + iconCodeOne + ".png";
         forePicOne.setAttribute('src', iconUrlOne)
+
+        let iconCodeTwo = data.list[8].weather[0].icon;
+        let iconUrlTwo = "http://openweathermap.org/img/w/" + iconCodeTwo + ".png";
+        forePicTwo.setAttribute('src', iconUrlTwo)
+
+        let iconCodeThree = data.list[16].weather[0].icon;
+        let iconUrlThree = "http://openweathermap.org/img/w/" + iconCodeThree + ".png";
+        forePicThree.setAttribute('src', iconUrlThree)
+
+        let iconCodeFour = data.list[24].weather[0].icon;
+        let iconUrlFour = "http://openweathermap.org/img/w/" + iconCodeFour + ".png";
+        forePicFour.setAttribute('src', iconUrlFour)
+
+        let iconCodeFive = data.list[32].weather[0].icon;
+        let iconUrlFive = "http://openweathermap.org/img/w/" + iconCodeFive + ".png";
+        forePicFive.setAttribute('src', iconUrlFive)
+        
 
     })
 
