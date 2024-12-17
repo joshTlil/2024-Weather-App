@@ -35,6 +35,12 @@ dayThree.setDate(date.getDate()+3)
 dayFour.setDate(date.getDate()+4)
 dayFive.setDate(date.getDate()+5)
 console.log(forecast)
+//Taking a break right here
+//TODO: I need to get the coordinates for lat and lon put in the api link so then i am able to grab the uvi from data
+//The api has to be local in order to have access to it
+//set global variables for now in order to grab the data then plug it in and continue the rest later
+let latitude = get
+
 // function searchFunction(event){
 //     event.preventDefault();
 //     let cityName = "Atlanta"
@@ -61,6 +67,12 @@ function getApi(link){
     .then(function (data){
         console.log(data)
         console.log(data.name)
+        console.log(data.coord.lon)
+        console.log(data.coord.lat)
+        let lon = data.coord.lon
+        let lat = data.coord.lat
+        let uviLink = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+".44&lon=" + lon +".04&exclude=minutely,hourly,daily,alerts&appid=" + weatherApiKey;
+        getUV(forecast)
         console.log(data.weather[0])
         console.log(data.weather[0].description)
         // getElement('icon').attr = data.weather[0].icon;
@@ -82,6 +94,28 @@ function getApi(link){
         console.log(((((temp-273.15)*9)/5))+32)
         console.log(Math.floor(((((temp-273.15)*9)/5))+32))
     });
+}
+
+function getUV(link){
+    fetch(link)
+    .then(function(response){
+        console.log(response.status)
+        if(response.status !== 200){
+            console.log(response.status)
+        }
+        return response.json()
+    })
+    .then(function(data){
+        console.log(data)
+    })
+}
+
+function getLat(lat){
+    return lat;
+}
+
+function getLon(lon){
+    return lon
 }
 
 
