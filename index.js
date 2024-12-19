@@ -18,11 +18,19 @@ let dayThreeEl = document.querySelector('.dayThree')
 let dayFourEl = document.querySelector('.dayFour')
 let dayFiveEl = document.querySelector('.dayFive')
 let temp;
+//Pictures
 let forePicOne = document.querySelector('.iconOne')
 let forePicTwo = document.querySelector('.iconTwo')
 let forePicThree = document.querySelector('.iconThree')
 let forePicFour = document.querySelector('.iconFour')
 let forePicFive = document.querySelector('.iconFive')
+//Temperature
+let foreTempOne = document.querySelector('.foreTempOne')
+let foreTempTwo = document.querySelector('.foreTempTwo')
+let foreTempThree = document.querySelector('.foreTempThree')
+let foreTempFour = document.querySelector('.foreTempFour')
+let foreTempFive = document.querySelector('.foreTempFive')
+//Wind
 const date = new Date();
 const tomorrow = new Date();
 const dayOne = new Date();
@@ -36,16 +44,7 @@ dayThree.setDate(date.getDate()+3)
 dayFour.setDate(date.getDate()+4)
 dayFive.setDate(date.getDate()+5)
 console.log(forecast)
-//Taking a break right here
-//TODO: I need to get the coordinates for lat and lon put in the api link so then i am able to grab the uvi from data
-//The api has to be local in order to have access to it
-//set global variables for now in order to grab the data then plug it in and continue the rest later
-let lat = 33.749;
-let lon = -84.388;
-// let uviLink = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon=" + lon +"&exclude=hourly,daily&appid=" + weatherApiKey;
-let uviLink = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=imperia&exclude=minutely,hourly&appid="+ uviKey;
-getUV(uviLink)
-// console.log(latitude)
+
 
 // function searchFunction(event){
 //     event.preventDefault();
@@ -73,12 +72,6 @@ function getApi(link){
     .then(function (data){
         console.log(data)
         console.log(data.name)
-        console.log(data.coord.lon)
-        console.log(data.coord.lat)
-        let lon = data.coord.lon
-        let lat = data.coord.lat
-        // let uviLink = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon=" + lon +"&exclude=hourly,daily&appid=" + weatherApiKey;
-        // getUV(uviLink)
         console.log(data.weather[0])
         console.log(data.weather[0].description)
         // getElement('icon').attr = data.weather[0].icon;
@@ -123,14 +116,6 @@ function getUV(link){
     })
 }
 
-function getLat(lat){
-    return lat;
-}
-
-// function getLon(lon){
-//     return lon
-// }
-
 
 function getForecast (forecast){
     fetch(forecast)
@@ -152,9 +137,13 @@ function getForecast (forecast){
         dayFourEl.innerHTML = moment(dayFour).format('MM/DD/YYYY')
         dayFiveEl.innerHTML = moment(dayFive).format('MM/DD/YYYY')
         let iconCodeOne = data.list[0].weather[0].icon;
+        let tempOne = data.list[0].main.temp
+        let tempConverterOne = Math.floor(((((tempOne-273.15)*9)/5))+32)
         let iconUrlOne = "http://openweathermap.org/img/w/" + iconCodeOne + ".png";
         forePicOne.setAttribute('src', iconUrlOne)
-
+        foreTempOne.innerHTML = "Temp: " + tempConverterOne
+        //TODO:
+        //Complete the rest of the temperature values, then do the same for wind and humidity
         let iconCodeTwo = data.list[8].weather[0].icon;
         let iconUrlTwo = "http://openweathermap.org/img/w/" + iconCodeTwo + ".png";
         forePicTwo.setAttribute('src', iconUrlTwo)

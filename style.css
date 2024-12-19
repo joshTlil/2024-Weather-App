@@ -12,7 +12,7 @@ body{
     grid-row-start: 1;
     grid-row-end: 9;
     width: 16em;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .dailyWeather{
@@ -49,8 +49,13 @@ input{
 }
 
 button{
-    margin-left: 4em;
-    width: 10em;
+    /* margin-left: 0.5em; */
+    width: 20em;
+    background-color: rgb(0, 110, 255);
+}
+
+.forecastTitle{
+    margin-left: 5em;
 }
 
 .fiveDayForecast{
