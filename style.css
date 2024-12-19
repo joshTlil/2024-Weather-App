@@ -58,7 +58,7 @@ button{
     grid-column-end: 6;
     grid-row-start: 3; 
     grid-row-end: 6;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 20em;
     width: 98em;
 }
@@ -76,4 +76,24 @@ button{
 
 .block > p{
     display: block;
+}
+
+.dayOne{
+    list-style-type: none;
+}
+
+.dayTwo{
+    list-style-type: none;
+}
+
+.dayThree{
+    list-style-type: none;
+}
+
+.dayFour{
+    list-style-type: none;
+}
+
+.dayFive{
+    list-style-type: none;
 }

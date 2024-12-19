@@ -43,7 +43,7 @@ console.log(forecast)
 let lat = 33.749;
 let lon = -84.388;
 // let uviLink = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon=" + lon +"&exclude=hourly,daily&appid=" + weatherApiKey;
-let uviLink = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid="+ uviKey;
+let uviLink = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=imperia&exclude=minutely,hourly&appid="+ uviKey;
 getUV(uviLink)
 // console.log(latitude)
 
@@ -99,6 +99,8 @@ function getApi(link){
         temp = data.main.temp;
         console.log(((((temp-273.15)*9)/5))+32)
         console.log(Math.floor(((((temp-273.15)*9)/5))+32))
+        let convertedTemp = Math.floor(((((temp-273.15)*9)/5))+32)
+        tempEl.innerHTML = "Temp: " + convertedTemp + "\u00B0F"
     });
 }
 
