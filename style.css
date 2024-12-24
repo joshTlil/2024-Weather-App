@@ -54,6 +54,13 @@ button{
     background-color: rgb(0, 110, 255);
 }
 
+.blue{
+    margin-top: 25px; 
+    margin-bottom: 5px; 
+    width: 20em;
+    background-color: rgb(0, 110, 255); 
+}
+
 .forecastTitle{
     margin-left: 5em;
 }

@@ -43,6 +43,8 @@ let foreHumidThree = document.querySelector('.humidThree')
 let foreHumidFour = document.querySelector('.humidFour')
 let foreHumidFive = document.querySelector('.humidFive')
 
+let submitBtn = document.querySelector('.submitBtn')
+
 const date = new Date();
 const tomorrow = new Date();
 const dayOne = new Date();
@@ -209,6 +211,42 @@ function getForecast (forecast){
 
 }
 
+// function saveCity(){
+//     let inputSpace = document.querySelector('#search')
+//     console.log(inputSpace)
+//     console.log("Hello")
+// }
+
+// submitBtn.onclick = saveCity;
+
+// function saveCity(event){
+//     event.preventDefault()
+//     let inputSpace = document.querySelector('#search').value
+//     // submitBtn.setAttribute('class', "blue")
+//     // console.log(inputSpace)
+//     let newBtn = document.createElement("button")
+//     newBtn.value = "My City"
+//     searchForm.appendChild(newBtn)
+//     console.log("Hello")
+// }
+
+
 getForecast(forecast)
 
 getApi(link)
+
+// saveCity()
+
+submitBtn.addEventListener('click', saveCity)
+function saveCity(event){
+    event.preventDefault()
+    let inputSpace = document.querySelector('#search').value
+    // let btnCarrier = document.querySelector('.btnCarrier')
+    // submitBtn.setAttribute('class', "blue")
+    // console.log(inputSpace)
+    let newBtn = document.createElement("button")
+    newBtn.setAttribute('class', "blue")
+    newBtn.innerHTML = inputSpace
+    searchForm.appendChild(newBtn)
+    console.log("Hello")
+}
