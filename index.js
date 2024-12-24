@@ -152,37 +152,57 @@ function getForecast (forecast){
         let tempOne = data.list[0].main.temp
         let tempConverterOne = Math.floor(((((tempOne-273.15)*9)/5))+32)
         let iconUrlOne = "http://openweathermap.org/img/w/" + iconCodeOne + ".png";
+        let windOne = data.list[0].wind.speed;
+        let humidOne = data.list[0].main.humidity;
         forePicOne.setAttribute('src', iconUrlOne)
         foreTempOne.innerHTML = "Temp: " + tempConverterOne + "\u00B0F"
+        foreWindOne.innerHTML = "Wind: "+windOne + " MPH"
+        foreHumidOne.innerHTML = "Humidity: "+humidOne
         //TODO:
         //Complete the rest of the temperature values, then do the same for wind and humidity
         let iconCodeTwo = data.list[8].weather[0].icon;
         let tempTwo = data.list[8].main.temp;
         let tempConverterTwo = Math.floor(((((tempTwo-273.15)*9)/5))+32)
         let iconUrlTwo = "http://openweathermap.org/img/w/" + iconCodeTwo + ".png";
+        let windTwo = data.list[8].wind.speed;
+        let humidTwo = data.list[8].main.humidity;
         forePicTwo.setAttribute('src', iconUrlTwo)
         foreTempTwo.innerHTML = "Temp: " + tempConverterTwo + "\u00B0F"
+        foreWindTwo.innerHTML = "Wind: "+windTwo + " MPH"
+        foreHumidTwo.innerHTML = "Humidity: "+humidTwo
 
         let iconCodeThree = data.list[16].weather[0].icon;
         let tempThree = data.list[16].main.temp;
         let tempConverterThree = Math.floor(((((tempThree-273.15)*9)/5))+32)
         let iconUrlThree = "http://openweathermap.org/img/w/" + iconCodeThree + ".png";
+        let windThree = data.list[16].wind.speed;
+        let humidThree = data.list[16].main.humidity;
         forePicThree.setAttribute('src', iconUrlThree)
         foreTempThree.innerHTML = "Temp: " + tempConverterThree + "\u00B0F"
+        foreWindThree.innerHTML = "Wind: "+windThree + " MPH"
+        foreHumidThree.innerHTML = "Humidity: "+humidThree
 
         let iconCodeFour = data.list[24].weather[0].icon;
         let tempFour = data.list[24].main.temp;
         let tempConverterFour = Math.floor(((((tempFour-273.15)*9)/5))+32)
         let iconUrlFour = "http://openweathermap.org/img/w/" + iconCodeFour + ".png";
+        let windFour = data.list[24].wind.speed;
+        let humidFour = data.list[24].main.humidity;
         forePicFour.setAttribute('src', iconUrlFour)
         foreTempFour.innerHTML = "Temp: " + tempConverterFour + "\u00B0F"
+        foreWindFour.innerHTML = "Wind: "+windFour + " MPH"
+        foreHumidFour.innerHTML = "Humidity: "+humidFour
 
         let iconCodeFive = data.list[32].weather[0].icon;
         let tempFive = data.list[32].main.temp
         let tempConverterFive = Math.floor(((((tempFive-273.15)*9)/5))+32)
         let iconUrlFive = "http://openweathermap.org/img/w/" + iconCodeFive + ".png";
+        let windFive = data.list[32].wind.speed;
+        let humidFive = data.list[32].main.humidity;
         forePicFive.setAttribute('src', iconUrlFive)
         foreTempFive.innerHTML = "Temp: " + tempConverterFive + "\u00B0F"
+        foreWindFive.innerHTML = "Wind: "+windFive + " MPH"
+        foreHumidFive.innerHTML = "Humidity: "+humidFive
         
 
     })
