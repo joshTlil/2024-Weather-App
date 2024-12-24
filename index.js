@@ -241,6 +241,13 @@ submitBtn.addEventListener('click', saveCity)
 function saveCity(event){
     event.preventDefault()
     let inputSpace = document.querySelector('#search').value
+    let = newCity = {
+        city: inputSpace
+    }
+
+    let allCities = JSON.parse(window.localStorage.getItem("city")) || [];
+    allCities.push(newCity);
+    window.localStorage.setItem("city", JSON.stringify(allCities))
     // let btnCarrier = document.querySelector('.btnCarrier')
     // submitBtn.setAttribute('class', "blue")
     // console.log(inputSpace)
