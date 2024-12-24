@@ -31,6 +31,18 @@ let foreTempThree = document.querySelector('.foreTempThree')
 let foreTempFour = document.querySelector('.foreTempFour')
 let foreTempFive = document.querySelector('.foreTempFive')
 //Wind
+let foreWindOne = document.querySelector('.foreWindOne')
+let foreWindTwo = document.querySelector('.foreWindTwo')
+let foreWindThree = document.querySelector('.foreWindThree')
+let foreWindFour = document.querySelector('.foreWindFour')
+let foreWindFive = document.querySelector('.foreWindFive')
+//Humid
+let foreHumidOne = document.querySelector('.humidOne')
+let foreHumidTwo = document.querySelector('.humidTwo')
+let foreHumidThree = document.querySelector('.humidThree')
+let foreHumidFour = document.querySelector('.humidFour')
+let foreHumidFive = document.querySelector('.humidFive')
+
 const date = new Date();
 const tomorrow = new Date();
 const dayOne = new Date();
