@@ -44,6 +44,8 @@ let foreHumidFour = document.querySelector('.humidFour')
 let foreHumidFive = document.querySelector('.humidFive')
 
 let submitBtn = document.querySelector('.submitBtn')
+let historyBtn = document.querySelector('.newBtn')
+
 
 const date = new Date();
 const tomorrow = new Date();
@@ -254,6 +256,31 @@ function saveCity(event){
     let newBtn = document.createElement("button")
     newBtn.setAttribute('class', "blue")
     newBtn.innerHTML = inputSpace
-    searchForm.appendChild(newBtn)
+    // searchForm.appendChild(newBtn)
+    //I will need to create a new function in order to prevent the button from clearing when clicked
+    historyBtn.appendChild(newBtn)
+    historyBtn.addEventListener('click', searchCity)
     console.log("Hello")
+}
+
+function searchCity(event){
+    event.preventDefault()
+    console.log("Good")
+    console.log(event.view.let)
+    }
+// let cityBtn = document.querySelector('.blue')
+
+// cityBtn.addEventListener('click', searchCity)
+
+// function searchCity(event){
+//     event.preventDefault()
+//    console.log("Good")
+// }
+
+// console.log(myName)
+
+
+
+function getCityName(city){
+    return city
 }
