@@ -264,6 +264,7 @@ function saveCity(event){
         console.log("There is no city")
     }else{
         newBtn.innerHTML = inputSpace
+        newBtn.setAttribute('value', inputSpace)
     }
     // searchForm.appendChild(newBtn)
     //I will need to create a new function in order to prevent the button from clearing when clicked
@@ -279,15 +280,22 @@ function saveCity(event){
 
 function searchCity(event){
     event.preventDefault()
-    // let theEvent = event.view.let.city
+    let theEvent = event.view.let.city
+    console.log("This is the current event: "+theEvent)
     // inputBox.value = " "
-    // theNewBtn = document.querySelector(".blue")
+    theNewBtn = document.querySelector(".blue")
     //TODO:
     //Problem is right now it is only submitting whatever is in the input field,
     //but I have to click "search" in order to get the new city,
     //And if I don't then it is going to keep the last input that was entered
     // weatherApiKey = "0f272bc818897878df309b4b56d1f500"
     // console.log("Good")
+    console.log(theNewBtn.innerHTML)
+    console.log(localStorage.length)
+    let allCities = JSON.parse(window.localStorage.getItem("city")) || [];
+    //TODO:
+    //Create a for loop to able to loop through localstorage data and have it try to match the value of the button
+    console.log(allCities[4].city)
     // if(theNewBtn.innerHTML === "Lawrenceville"){
     //     console.log("This is my city")
     // }
@@ -307,7 +315,7 @@ function searchCity(event){
     // console.log("THIS IS THE LAST CHECK")
     // getApi(link)
     // getForecast(forecast)
-    }
+}
 //TODO:
 //The problem is that it is saving the event for the whole div, and the for each individual button
 //I need to create a log to handle the each smaller buttons grab its value 
