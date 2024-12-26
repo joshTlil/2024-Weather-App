@@ -45,6 +45,8 @@ let foreHumidFive = document.querySelector('.humidFive')
 
 let submitBtn = document.querySelector('.submitBtn')
 let historyBtn = document.querySelector('.newBtn')
+let inputBox = document.querySelector('#search')
+let theNewBtn = document.querySelector(".blue")
 
 
 const date = new Date();
@@ -243,6 +245,9 @@ submitBtn.addEventListener('click', saveCity)
 function saveCity(event){
     event.preventDefault()
     let inputSpace = document.querySelector('#search').value
+    // inputSpace = " "
+    console.log(inputSpace)
+    console.log(inputBox.value)
     let = newCity = {
         city: inputSpace
     }
@@ -255,19 +260,62 @@ function saveCity(event){
     // console.log(inputSpace)
     let newBtn = document.createElement("button")
     newBtn.setAttribute('class', "blue")
-    newBtn.innerHTML = inputSpace
+    if(!inputSpace){
+        console.log("There is no city")
+    }else{
+        newBtn.innerHTML = inputSpace
+    }
     // searchForm.appendChild(newBtn)
     //I will need to create a new function in order to prevent the button from clearing when clicked
     historyBtn.appendChild(newBtn)
-    historyBtn.addEventListener('click', searchCity)
+    // historyBtn.addEventListener('click', searchCity)
     console.log("Hello")
+    // document.addEventListener('DOMContentLoaded', function(){
+    //     theNewBtn.addEventListener('click', searchCity)
+    // })
 }
+
+// historyBtn.addEventListener('click', searchCity)
 
 function searchCity(event){
     event.preventDefault()
-    console.log("Good")
-    console.log(event.view.let)
+    // let theEvent = event.view.let.city
+    // inputBox.value = " "
+    // theNewBtn = document.querySelector(".blue")
+    //TODO:
+    //Problem is right now it is only submitting whatever is in the input field,
+    //but I have to click "search" in order to get the new city,
+    //And if I don't then it is going to keep the last input that was entered
+    // weatherApiKey = "0f272bc818897878df309b4b56d1f500"
+    // console.log("Good")
+    // if(theNewBtn.innerHTML === "Lawrenceville"){
+    //     console.log("This is my city")
+    // }
+    // console.log(historyBtn)
+    // theEvent = theNewBtn.innerHTML
+    // console.log(theEvent + "This should be the new city")
+    // cityName = theNewBtn.innerHTML
+    // console.log(cityName)
+    // console.log(weatherApiKey)
+    // cityName = theNewBtn.innerHTML
+    // console.log("Is there an error")
+    // // weatherApiKey = "0f272bc818897878df309b4b56d1f500"
+    // link = 'https://api.openweathermap.org/data/2.5/weather?q='+ cityName + '&appid=' + weatherApiKey
+    // // getApi(link)
+    // console.log("Is this working")
+    // forecast = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=' + weatherApiKey
+    // console.log("THIS IS THE LAST CHECK")
+    // getApi(link)
+    // getForecast(forecast)
     }
+//TODO:
+//The problem is that it is saving the event for the whole div, and the for each individual button
+//I need to create a log to handle the each smaller buttons grab its value 
+
+    historyBtn.addEventListener('click', searchCity)
+    // document.addEventListener('DOMContentLoaded', function(){
+    //     theNewBtn.addEventListener('click', searchCity)
+    // })
 // let cityBtn = document.querySelector('.blue')
 
 // cityBtn.addEventListener('click', searchCity)
