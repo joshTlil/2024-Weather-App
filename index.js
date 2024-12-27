@@ -63,17 +63,6 @@ dayFour.setDate(date.getDate()+4)
 dayFive.setDate(date.getDate()+5)
 console.log(forecast)
 
-
-// function searchFunction(event){
-//     event.preventDefault();
-//     let cityName = "Atlanta"
-//     let weatherApiKey = "0f272bc818897878df309b4b56d1f500"
-//     let link = 'https://api.openweathermap.org/data/2.5/weather?q='+ cityName + '&appid=' + weatherApiKey
-
-// }
-
-// searchForm.addEventListener('submit', searchFunction);
-
 function getElement(id){
     return document.getElementById(id);
 }
@@ -114,26 +103,6 @@ function getApi(link){
         tempEl.innerHTML = "Temp: " + convertedTemp + "\u00B0F"
     });
 }
-
-function getUV(link){
-    fetch(link)
-    .then(function(response){
-        console.log(response.status)
-        if(response.status !== 200){
-            console.log(response.status)
-        }
-        return response.json()
-    })
-    .then(function(data){
-        // console.log(data.city.coord.lat)
-        // return data.city.coord.lat
-        // console.log(data.coord.lat)
-        //  latitude = data.coord.lat
-        // getLat(lat);
-        console.log(data)
-    })
-}
-
 
 function getForecast (forecast){
     fetch(forecast)
@@ -215,49 +184,23 @@ function getForecast (forecast){
 
 }
 
-// function saveCity(){
-//     let inputSpace = document.querySelector('#search')
-//     console.log(inputSpace)
-//     console.log("Hello")
-// }
-
-// submitBtn.onclick = saveCity;
-
-// function saveCity(event){
-//     event.preventDefault()
-//     let inputSpace = document.querySelector('#search').value
-//     // submitBtn.setAttribute('class', "blue")
-//     // console.log(inputSpace)
-//     let newBtn = document.createElement("button")
-//     newBtn.value = "My City"
-//     searchForm.appendChild(newBtn)
-//     console.log("Hello")
-// }
-
-
 getForecast(forecast)
 
 getApi(link)
-
-// saveCity()
 
 submitBtn.addEventListener('click', saveCity)
 function saveCity(event){
     event.preventDefault()
     let inputSpace = document.querySelector('#search').value
-    // inputSpace = " "
+    inputBox.value = " "
     console.log(inputSpace)
     console.log(inputBox.value)
     let = newCity = {
         city: inputSpace
     }
-
     let allCities = JSON.parse(window.localStorage.getItem("city")) || [];
     allCities.push(newCity);
     window.localStorage.setItem("city", JSON.stringify(allCities))
-    // let btnCarrier = document.querySelector('.btnCarrier')
-    // submitBtn.setAttribute('class', "blue")
-    // console.log(inputSpace)
     let newBtn = document.createElement("button")
     newBtn.setAttribute('class', "blue")
     if(!inputSpace){
@@ -266,24 +209,7 @@ function saveCity(event){
         newBtn.innerHTML = inputSpace
         newBtn.setAttribute('value', inputSpace)
     }
-    // searchForm.appendChild(newBtn)
-    //I will need to create a new function in order to prevent the button from clearing when clicked
     historyBtn.appendChild(newBtn)
-    // historyBtn.addEventListener('click', searchCity)
-    console.log("Hello")
-    // document.addEventListener('DOMContentLoaded', function(){
-    //     theNewBtn.addEventListener('click', searchCity)
-    // })
-    //TODO: 
-    //Better off making if statements if the button is clicked and if it has matching values 
-    //Search that city
-    // historyBtn.addEventListener('click', (event) => searchCity(event, inputSpace))
-    // historyBtn.onclick = function(event){
-    //     event.preventDefault()
-    //     console.log("Hello World")
-    //     console.log("Is this working")
-    //     console.log(historyBtn.innerHTML)
-    // }
     newBtn.onclick = function(event){
         event.preventDefault()
         console.log(newBtn.innerText)
@@ -294,75 +220,4 @@ function saveCity(event){
         forecast = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=' + weatherApiKey
         getForecast(forecast)
     }
-}
-
-// historyBtn.addEventListener('click', searchCity)
-
-function searchCity(event, inputSpace){
-    event.preventDefault()
-    let cityName = inputSpace
-    let theEvent = event.view.let.city
-    console.log("This is my city name: " + cityName)
-    console.log("This is the current event: "+theEvent)
-    // inputBox.value = " "
-    // theNewBtn = document.querySelector(".blue")
-    // theNewBtn = document.querySelector(".blue").value
-    //TODO:
-    //Problem is right now it is only submitting whatever is in the input field,
-    //but I have to click "search" in order to get the new city,
-    //And if I don't then it is going to keep the last input that was entered
-    // weatherApiKey = "0f272bc818897878df309b4b56d1f500"
-    // console.log("Good")
-    console.log("This is the buttons value: "+theNewBtn)
-    console.log(localStorage.length)
-    let allCities = JSON.parse(window.localStorage.getItem("city")) || [];
-    //TODO:
-    //Create a for loop to able to loop through localstorage data and have it try to match the value of the button
-    console.log(allCities[4].city)
-    console.log(allCities.length)
-    // for(let i = 0; i < allCities.length; i++){
-    //     if()
-    // }
-    // if(theNewBtn.innerHTML === "Lawrenceville"){
-    //     console.log("This is my city")
-    // }
-    // console.log(historyBtn)
-    // theEvent = theNewBtn.innerHTML
-    // console.log(theEvent + "This should be the new city")
-    // cityName = theNewBtn.innerHTML
-    // console.log(cityName)
-    // console.log(weatherApiKey)
-    // cityName = theNewBtn.innerHTML
-    // console.log("Is there an error")
-    // // weatherApiKey = "0f272bc818897878df309b4b56d1f500"
-    // link = 'https://api.openweathermap.org/data/2.5/weather?q='+ cityName + '&appid=' + weatherApiKey
-    // // getApi(link)
-    // console.log("Is this working")
-    // forecast = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=' + weatherApiKey
-    // console.log("THIS IS THE LAST CHECK")
-    // getApi(link)
-    // getForecast(forecast)
-}
-//TODO:
-//The problem is that it is saving the event for the whole div, and the for each individual button
-//I need to create a log to handle the each smaller buttons grab its value 
-    // historyBtn.addEventListener('click', searchCity)
-    // document.addEventListener('DOMContentLoaded', function(){
-    //     theNewBtn.addEventListener('click', searchCity)
-    // })
-// let cityBtn = document.querySelector('.blue')
-
-// cityBtn.addEventListener('click', searchCity)
-
-// function searchCity(event){
-//     event.preventDefault()
-//    console.log("Good")
-// }
-
-// console.log(myName)
-
-
-
-function getCityName(city){
-    return city
 }
