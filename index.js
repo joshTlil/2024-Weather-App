@@ -274,28 +274,49 @@ function saveCity(event){
     // document.addEventListener('DOMContentLoaded', function(){
     //     theNewBtn.addEventListener('click', searchCity)
     // })
+    //TODO: 
+    //Better off making if statements if the button is clicked and if it has matching values 
+    //Search that city
+    // historyBtn.addEventListener('click', (event) => searchCity(event, inputSpace))
+    // historyBtn.onclick = function(event){
+    //     event.preventDefault()
+    //     console.log("Hello World")
+    //     console.log("Is this working")
+    //     console.log(historyBtn.innerHTML)
+    // }
+    newBtn.onclick = function(event){
+        event.preventDefault()
+        console.log(newBtn.innerText)
+    }
 }
 
 // historyBtn.addEventListener('click', searchCity)
 
-function searchCity(event){
+function searchCity(event, inputSpace){
     event.preventDefault()
+    let cityName = inputSpace
     let theEvent = event.view.let.city
+    console.log("This is my city name: " + cityName)
     console.log("This is the current event: "+theEvent)
     // inputBox.value = " "
-    theNewBtn = document.querySelector(".blue")
+    // theNewBtn = document.querySelector(".blue")
+    // theNewBtn = document.querySelector(".blue").value
     //TODO:
     //Problem is right now it is only submitting whatever is in the input field,
     //but I have to click "search" in order to get the new city,
     //And if I don't then it is going to keep the last input that was entered
     // weatherApiKey = "0f272bc818897878df309b4b56d1f500"
     // console.log("Good")
-    console.log(theNewBtn.innerHTML)
+    console.log("This is the buttons value: "+theNewBtn)
     console.log(localStorage.length)
     let allCities = JSON.parse(window.localStorage.getItem("city")) || [];
     //TODO:
     //Create a for loop to able to loop through localstorage data and have it try to match the value of the button
     console.log(allCities[4].city)
+    console.log(allCities.length)
+    // for(let i = 0; i < allCities.length; i++){
+    //     if()
+    // }
     // if(theNewBtn.innerHTML === "Lawrenceville"){
     //     console.log("This is my city")
     // }
@@ -319,8 +340,7 @@ function searchCity(event){
 //TODO:
 //The problem is that it is saving the event for the whole div, and the for each individual button
 //I need to create a log to handle the each smaller buttons grab its value 
-
-    historyBtn.addEventListener('click', searchCity)
+    // historyBtn.addEventListener('click', searchCity)
     // document.addEventListener('DOMContentLoaded', function(){
     //     theNewBtn.addEventListener('click', searchCity)
     // })
