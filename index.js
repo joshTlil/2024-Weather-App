@@ -287,6 +287,12 @@ function saveCity(event){
     newBtn.onclick = function(event){
         event.preventDefault()
         console.log(newBtn.innerText)
+        cityName = newBtn.innerText
+        weatherApiKey = "0f272bc818897878df309b4b56d1f500"
+        link = 'https://api.openweathermap.org/data/2.5/weather?q='+ cityName + '&appid=' + weatherApiKey
+        getApi(link)
+        forecast = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=' + weatherApiKey
+        getForecast(forecast)
     }
 }
 
